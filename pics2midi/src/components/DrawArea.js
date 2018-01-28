@@ -37,26 +37,6 @@ class DrawArea extends React.Component {
         quality: 0.95
     };
 
-    // domtoimage.toJpeg(node, options).then(function (dataUrl) {
-    //
-    // //   const toFile = require('data-uri-to-file');
-    // //   const dataUri = dataUrl
-    // //
-    // //   // promise style
-    // //   toFile(dataUri).then(file => {
-    // //
-    // //         file.name = "drawing.jpg"
-    // //         alert(file.name);
-    // //         var formData = new FormData();
-    // //         formData.append('photo', file);
-    // //         fetch('http://localhost:5000/upload_file', {
-    // //           method: 'POST',
-    // //           body: formData
-    // //         });
-    // //   });
-    // //   // var file = new File([dataUrl], "drawing.jpg")
-    // //
-    // // });
     domtoimage.toBlob(node)
       .then(function(blob) {
         var file = new File([blob], "drawing.png")
@@ -140,9 +120,7 @@ class DrawArea extends React.Component {
           <Drawing lines = {this.state.lines}/>
         </div>
         <div>
-          <button onClick = {this.uploadDrawing} >
-            Upload your masterpiece
-          </button>
+          <div className="uploadDrawingButton" onClick={this.uploadDrawing} > </div>
         </div>
       </div>
     );

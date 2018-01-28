@@ -1,6 +1,7 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
+  background: blue;
 }
 
 img {
@@ -8,40 +9,63 @@ img {
     max-height: 100%;
 }
 
-.square {
-    height: 40vh;
-    width: 50vw;
+.generateArea {
+    width: 10vw;
+    height: 50vh;
+    margin-right: auto;
+    margin-left: auto;
+    background: green;
 }
 
-
+.uploadingWindow {
+  width: 40vw;
+  height: 50vh;
+  top: 50%;
+  background: white;
+  float: left;
+}
 .drawArea {
   width: 40vw;
   height: 50vh;
   top: 50%;
-  border: 1px solid black;
   background: white;
   float: right;
   cursor: crosshair;
 }
 
+.bigBoi {
+  width: 200px;
+  height: 200px;
+}
+.uploadButton {
+  width: 400px;
+  height: 200px;
+}
+
+
+
 .imageUpload {
   width: 400px;
   height: 400px;
-  border: 1px solid black;
   float: left;
-}
-.uploadingWindow {
-  width: 40vw;
-  height: 50vh;
-  border: 1px solid black;
-  float: left;
-}
-.uploadButton {
-    margin: auto;
-    position: absolute;
-    bottom: 400px;
+  padding: 10px;
 }
 
+.uploadButton {
+  width: 40vw;
+  height:100px;
+  top: 50%;
+  float: left;
+  background: red;
+}
+
+.uploadDrawingButton {
+  width: 40vw;
+  height: 100px;
+  top: 50%;
+  float: right;
+  background: red;
+}
 .path {
   fill: none;
   stroke-width: 15px;
