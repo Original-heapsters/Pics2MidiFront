@@ -7,13 +7,12 @@ import ThreeVisual from './components/threeVisual';
 import GenerateArea from './components/generateArea';
 import './index.css';
 
-
+// <ThreeVisual />
 ReactDOM.render(
-  <div>
-  <ImageUpload />
-  <DrawArea />
-  <GenerateArea />
-  <ThreeVisual />
+  <div className="flex">
+    <ImageUpload />
+    <GenerateArea />
+    <DrawArea />
   </div>,
   document.getElementById("container")
 );

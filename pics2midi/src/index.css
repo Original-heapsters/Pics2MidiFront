@@ -1,6 +1,6 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+  margin: 0px;
   background: blue;
 }
 
@@ -16,18 +16,19 @@ img {
     margin-left: auto;
     background: green;
 }
+.flex {
+  display: flex;
+}
 
 .uploadingWindow {
   width: 40vw;
   height: 50vh;
-  top: 50%;
   background: white;
   float: left;
 }
 .drawArea {
   width: 40vw;
   height: 50vh;
-  top: 50%;
   background: white;
   float: right;
   cursor: crosshair;
@@ -37,12 +38,6 @@ img {
   width: 200px;
   height: 200px;
 }
-.uploadButton {
-  width: 400px;
-  height: 200px;
-}
-
-
 
 .imageUpload {
   width: 400px;
@@ -51,21 +46,15 @@ img {
   padding: 10px;
 }
 
-.uploadButton {
-  width: 40vw;
+.fancyButton {
   height:100px;
-  top: 50%;
-  float: left;
+  width: 100%;
+  bottom: -50px;
+  position: relative;
+  display: inline-block;
   background: red;
 }
 
-.uploadDrawingButton {
-  width: 40vw;
-  height: 100px;
-  top: 50%;
-  float: right;
-  background: red;
-}
 .path {
   fill: none;
   stroke-width: 15px;

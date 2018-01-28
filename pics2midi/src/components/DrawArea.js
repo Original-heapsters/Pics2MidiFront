@@ -118,9 +118,7 @@ class DrawArea extends React.Component {
             onMouseDown = {this.handleMouseDown}
             onMouseMove = {this.handleMouseMove} >
           <Drawing lines = {this.state.lines}/>
-        </div>
-        <div>
-          <div className="uploadDrawingButton" onClick={this.uploadDrawing} > </div>
+          <div className="fancyButton" onClick={this.uploadDrawing} > </div>
         </div>
       </div>
     );

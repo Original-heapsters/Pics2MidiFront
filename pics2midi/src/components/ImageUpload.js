@@ -72,19 +72,21 @@ class ImageUpload extends React.Component {
     //      body: formData
     //   });
     }
-  }
 
+  }
+  // <input type="file" onChange={this.handleImageChange} />
+  // {$imagePreview}
   render() {
     let {imagePreviewUrl} = this.state;
     let $imagePreview = null;
     if (imagePreviewUrl) {
-      $imagePreview = (<div ><img src={imagePreviewUrl} /></div>);
+      $imagePreview = (<img src={imagePreviewUrl} />);
     }
     return (
-      <div className="uploadingWindow">
-        <input type="file" onChange={this.handleImageChange} />
-        {$imagePreview}
-        <div  ref="uploadButton" className="uploadButton" onClick={this.uploadImage}></div>
+      <div>
+        <div className="uploadingWindow">
+          <div  ref="uploadButton" className="fancyButton" onClick={this.uploadImage}></div>
+        </div>
       </div>
 
     );
