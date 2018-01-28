@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import FileSaver from 'file-saver';
 import domtoimage from 'dom-to-image';
 import {
   List,
@@ -33,9 +31,6 @@ class DrawArea extends React.Component {
   uploadDrawing() {
     console.log(this.state.lines);
     var node = this.refs.drawArea;
-    var options = {
-        quality: 0.95
-    };
 
     domtoimage.toBlob(node)
       .then(function(blob) {
@@ -72,7 +67,7 @@ class DrawArea extends React.Component {
   }
 
   handleMouseDown(mouseEvent) {
-    if (mouseEvent.button != 0) {
+    if (mouseEvent.button !== 0) {
       return;
     }
 

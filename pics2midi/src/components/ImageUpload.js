@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import bodymovin from 'bodymovin';
 import lottie from 'lottie-web';
 import '../index.css';
 class ImageUpload extends React.Component {
@@ -74,8 +72,6 @@ class ImageUpload extends React.Component {
     }
 
   }
-  // <input type="file" onChange={this.handleImageChange} />
-  // {$imagePreview}
   render() {
     let {imagePreviewUrl} = this.state;
     let $imagePreview = null;
@@ -85,6 +81,8 @@ class ImageUpload extends React.Component {
     return (
       <div>
         <div className="uploadingWindow">
+          <input type="file" onChange={this.handleImageChange} />
+          {$imagePreview}
           <div  ref="uploadButton" className="fancyButton" onClick={this.uploadImage}></div>
         </div>
       </div>

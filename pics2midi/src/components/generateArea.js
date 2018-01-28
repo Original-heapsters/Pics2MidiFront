@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import bodymovin from 'bodymovin';
 import lottie from 'lottie-web';
 import '../index.css';
 class GenerateArea extends React.Component {
