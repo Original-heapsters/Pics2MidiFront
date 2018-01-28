@@ -19,6 +19,7 @@ img {
   height: 50vh;
   top: 50%;
   border: 1px solid black;
+  background: white;
   float: right;
   cursor: crosshair;
 }
@@ -43,7 +44,7 @@ img {
 
 .path {
   fill: none;
-  stroke-width: 1px;
+  stroke-width: 15px;
   stroke: black;
   stroke-linejoin: round;
   stroke-linecap: round;

@@ -33,9 +33,33 @@ class DrawArea extends React.Component {
   uploadDrawing() {
     console.log(this.state.lines);
     var node = this.refs.drawArea;
+    var options = {
+        quality: 0.95
+    };
+
+    // domtoimage.toJpeg(node, options).then(function (dataUrl) {
+    //
+    // //   const toFile = require('data-uri-to-file');
+    // //   const dataUri = dataUrl
+    // //
+    // //   // promise style
+    // //   toFile(dataUri).then(file => {
+    // //
+    // //         file.name = "drawing.jpg"
+    // //         alert(file.name);
+    // //         var formData = new FormData();
+    // //         formData.append('photo', file);
+    // //         fetch('http://localhost:5000/upload_file', {
+    // //           method: 'POST',
+    // //           body: formData
+    // //         });
+    // //   });
+    // //   // var file = new File([dataUrl], "drawing.jpg")
+    // //
+    // // });
     domtoimage.toBlob(node)
       .then(function(blob) {
-        var file = new File([blob], "drawing.png");
+        var file = new File([blob], "drawing.png")
         var formData = new FormData();
         formData.append('photo', file);
         fetch('http://localhost:5000/upload_file', {

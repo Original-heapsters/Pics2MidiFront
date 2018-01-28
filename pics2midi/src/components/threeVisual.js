@@ -8,6 +8,7 @@ class ThreeVisual extends Component {
     this.start = this.start.bind(this)
     this.stop = this.stop.bind(this)
     this.animate = this.animate.bind(this)
+    this.playMidi = this.playMidi.bind(this)
   }
 
   componentDidMount() {
@@ -15,19 +16,20 @@ class ThreeVisual extends Component {
     const height = this.mount.clientHeight
 
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      width / height,
-      0.1,
-      1000
-    )
+    var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
+    camera.position.set(0, 0, 200);
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
     const renderer = new THREE.WebGLRenderer({ antialias: true })
-    const geometry = new THREE.BoxGeometry(1, 1, 1)
-    const material = new THREE.MeshBasicMaterial({ color: '#433F81' })
-    const cube = new THREE.Mesh(geometry, material)
+    const material = new THREE.LineBasicMaterial({ color: 0x0000ff });
+    var geometry = new THREE.Geometry();
+    geometry.vertices.push(new THREE.Vector3(0, 50, 0));
+    geometry.vertices.push(new THREE.Vector3(50, 0, 0));
 
-    camera.position.z = 4
-    scene.add(cube)
+    const line = new THREE.Line(geometry, material);
+
+    // camera.position.z = 4
+    // scene.add(cube)
+    scene.add(line)
     renderer.setClearColor('#000000')
     renderer.setSize(width, height)
 
@@ -35,7 +37,7 @@ class ThreeVisual extends Component {
     this.camera = camera
     this.renderer = renderer
     this.material = material
-    this.cube = cube
+    this.line = line
 
     this.mount.appendChild(this.renderer.domElement)
     this.start()
@@ -56,9 +58,12 @@ class ThreeVisual extends Component {
     cancelAnimationFrame(this.frameId)
   }
 
+  playMidi() {
+  }
+
   animate() {
-    this.cube.rotation.x += 0.01
-    this.cube.rotation.y += 0.01
+    // this.line.rotation.x += 0.01
+    // this.line.rotation.y += 0.01
 
     this.renderScene()
     this.frameId = window.requestAnimationFrame(this.animate)
@@ -70,10 +75,14 @@ class ThreeVisual extends Component {
 
   render() {
     return (
+      <div>
       <div
         style={{ width: '400px', height: '400px' }}
-        ref={(mount) => { this.mount = mount }}
-      />
+        ref={(mount) => { this.mount = mount }} />
+        <button onClick={this.playMidi}>
+        Play Midi
+        </button>
+        </div>
     )
   }
 }
