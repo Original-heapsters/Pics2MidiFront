@@ -1,17 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ImageUpload from './components/ImageUpload';
-import DrawArea from './components/DrawArea';
+import Home from './components/Home';
 import ThreeVisual from './components/threeVisual';
-import GenerateArea from './components/generateArea';
 import './index.css';
 
 // <ThreeVisual />
 ReactDOM.render(
-  <div className="flex">
-    <ImageUpload />
-    <GenerateArea />
-    <DrawArea />
+  <div >
+    <Home />
   </div>,
   document.getElementById("container")
 );

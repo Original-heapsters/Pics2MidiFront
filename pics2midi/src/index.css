@@ -10,10 +10,10 @@ img {
 }
 
 .generateArea {
-    width: 10vw;
+    width: 20vw;
     height: 50vh;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 5px;
+    margin-left: 5px;
     background: green;
 }
 .flex {
@@ -26,6 +26,9 @@ img {
   background: white;
   float: left;
 }
+.drawContainer {
+  width: 40vw;
+}
 .drawArea {
   width: 40vw;
   height: 50vh;
@@ -35,8 +38,36 @@ img {
 }
 
 .bigBoi {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 50%;
+  margin-top: 50%;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.bigBoiScaledDown {
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(0.3);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(0.3);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(0.3);
+    transition: all 200ms ease-in;
+    transform: scale(0.3);
+}
+
+.bigBoiScaledUp {
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.0);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.0);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.0);
+    transition: all 200ms ease-in;
+    transform: scale(1.0);
 }
 
 .imageUpload {
@@ -49,7 +80,7 @@ img {
 .fancyButton {
   height:100px;
   width: 100%;
-  bottom: -50px;
+  bottom: -5px;
   position: relative;
   display: inline-block;
   background: red;
@@ -66,4 +97,44 @@ img {
 .drawing {
   width: 100%;
   height: 100%;
+}
+
+.switchingLoader {
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+
+.inputfile {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+  padding: 5px;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.visualization {
+  width: 100vw;
+  height: 50vh;
+}
+
+.inputfile + label {
+    height: 50px;
+    width: auto;
+    margin-top: 5px;
+    font-size: 1.25em;
+    font-weight: 700;
+    line-height: 250%;
+    text-align: left;
+    padding-right: 50px;
+    display: inline-block;
+    color: white;
+    background-color: #EC414E;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #b24e55;
 }

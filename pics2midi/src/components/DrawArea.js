@@ -1,5 +1,6 @@
 import React from 'react';
 import domtoimage from 'dom-to-image';
+import lottie from 'lottie-web';
 import {
   List,
   Map
@@ -21,6 +22,14 @@ class DrawArea extends React.Component {
   }
 
   componentDidMount() {
+    this.uploadingAnim = lottie.loadAnimation({
+      container: this.refs.uploadButton, // the dom element that will contain the animation
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      path: 'uploadButton.json' // the path to the animation json
+    });
+    this.uploadingAnim.addEventListener('complete', this.handleanimationComplete)
     document.addEventListener("mouseup", this.handleMouseUp);
   }
 
@@ -28,9 +37,18 @@ class DrawArea extends React.Component {
     document.removeEventListener("mouseup", this.handleMouseUp);
   }
 
+  componentDidUpdate() {
+  }
+
+  handleanimationComplete = (event) => {
+    this.uploadingAnim.stop();
+  }
+
   uploadDrawing() {
-    console.log(this.state.lines);
+    this.uploadingAnim.play();
+
     var node = this.refs.drawArea;
+
 
     domtoimage.toBlob(node)
       .then(function(blob) {
@@ -42,28 +60,6 @@ class DrawArea extends React.Component {
           body: formData
         });
       });
-  }
-
-  dataURItoBlob(dataURI) {
-    // convert base64/URLEncoded data component to raw binary data held in a string
-    var byteString;
-    if (dataURI.split(',')[0].indexOf('base64') >= 0)
-      byteString = atob(dataURI.split(',')[1]);
-    else
-      byteString = unescape(dataURI.split(',')[1]);
-
-    // separate out the mime component
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-
-    // write the bytes of the string to a typed array
-    var ia = new Uint8Array(byteString.length);
-    for (var i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
-    }
-
-    return new Blob([ia], {
-      type: mimeString
-    });
   }
 
   handleMouseDown(mouseEvent) {
@@ -107,14 +103,14 @@ class DrawArea extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="drawContainer">
         <div className = "drawArea"
             ref = "drawArea"
             onMouseDown = {this.handleMouseDown}
             onMouseMove = {this.handleMouseMove} >
           <Drawing lines = {this.state.lines}/>
-          <div className="fancyButton" onClick={this.uploadDrawing} > </div>
         </div>
+        <div className="fancyButton" ref="uploadButton" onClick={this.uploadDrawing} > </div>
       </div>
     );
   }

@@ -14,6 +14,8 @@ class ThreeVisual extends Component {
   componentDidMount() {
     const width = this.mount.clientWidth
     const height = this.mount.clientHeight
+    console.log(width);
+    console.log(height);
 
     const scene = new THREE.Scene()
     var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
@@ -77,12 +79,13 @@ class ThreeVisual extends Component {
     return (
       <div>
       <div
-        style={{ width: '400px', height: '400px' }}
-        ref={(mount) => { this.mount = mount }} />
+        className="visualization"
+        ref={(mount) => { this.mount = mount }} >
         <button onClick={this.playMidi}>
         Play Midi
         </button>
         </div>
+      </div>
     )
   }
 }
