@@ -55,7 +55,7 @@ class DrawArea extends React.Component {
         var file = new File([blob], "drawing.png")
         var formData = new FormData();
         formData.append('photo', file);
-        fetch('http://localhost:5000/upload_file', {
+        fetch('http://localhost:4000/upload_file', {
           method: 'POST',
           body: formData
         });

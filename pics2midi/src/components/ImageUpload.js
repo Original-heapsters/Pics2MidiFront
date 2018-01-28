@@ -67,7 +67,7 @@ class ImageUpload extends React.Component {
 
     var formData = new FormData();
       formData.append('photo', this.state.file);
-      fetch('http://localhost:5000/upload_file', {
+      fetch('http://localhost:4000/upload_file', {
         method:'POST',
          body: formData
       });
